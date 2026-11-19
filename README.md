@@ -21,7 +21,7 @@
 
 | 浅色 | 暗色 |
 | --- | --- |
-| ![浅色界面示意图](docs/preview-light.png) | ![暗色界面示意图](docs/preview-dark.png) |
+| ![浅色界面示意图](https://images--1.oss-cn-beijing.aliyuncs.com/pic3/preview-light.png) | ![暗色界面示意图](https://images--1.oss-cn-beijing.aliyuncs.com/pic3/preview-dark.png) |
 
 > 界面示意，使用示例数据，不含个人书架内容。
 
