@@ -1,8 +1,10 @@
-# 微信读书 · 清爽书架
+# WeReadFocus · Shelf
 
-[![CI](https://github.com/xrt-wg/weread-clean-shelf/actions/workflows/ci.yml/badge.svg)](https://github.com/xrt-wg/weread-clean-shelf/actions/workflows/ci.yml)
+[![CI](https://github.com/xrt-wg/wereadfocus-shelf/actions/workflows/ci.yml/badge.svg)](https://github.com/xrt-wg/wereadfocus-shelf/actions/workflows/ci.yml)
 
 非官方 Tampermonkey 用户脚本，把微信读书网页版书架重排为「左侧分组 + 右侧纯封面」的阅读型界面。
+
+本脚本属于 **WeReadFocus** 项目，与 [WeReadFocus · Read](https://github.com/xrt-wg/wereadfocus-read) 为姊妹脚本，两者各自使用独立仓库、独立安装。
 
 - 左侧分组列表、筛选，以及固定顶部的“未分组”入口。
 - 分组可自由拖动排序，靠近边缘自动滚动；也支持 `Alt + ↑ / ↓`。
@@ -28,7 +30,7 @@
 1. 在浏览器安装 [Tampermonkey](https://www.tampermonkey.net/)（Chrome / Edge / Firefox 均可）。
 2. 打开安装地址：
 
-   <https://raw.githubusercontent.com/xrt-wg/weread-clean-shelf/release/src/weread-shelf.user.js>
+   <https://raw.githubusercontent.com/xrt-wg/wereadfocus-shelf/release/src/weread-shelf.user.js>
 
    Tampermonkey 会弹出安装页。如果浏览器直接显示了源码，把全文复制到 Tampermonkey 的「新建脚本」中保存即可。
 3. 打开并刷新 <https://weread.qq.com/web/shelf>。
@@ -36,7 +38,7 @@
 
 Chrome 138 及以上版本可能需要在扩展详情页中开启「允许用户脚本」。
 
-> 如果你之前安装过本地 1.0.0 版本，脚本的 `@namespace` 已改为 GitHub 地址。建议先在 Tampermonkey 中删除旧脚本，再安装新版，避免两个同名脚本同时运行。
+> 如果你之前安装的是旧名称「微信读书 · 清爽书架」，脚本名称与 `@namespace` 均已变更。请先在 Tampermonkey 中删除旧脚本，再安装 WeReadFocus · Shelf，避免两个脚本同时运行。
 
 ## 更新
 
@@ -46,7 +48,7 @@ Chrome 138 及以上版本可能需要在扩展详情页中开启「允许用户
 
 ## 卸载
 
-在 Tampermonkey 中删除「微信读书 · 清爽书架」。如需一并清除本机偏好，可在微信读书页面控制台执行：
+在 Tampermonkey 中删除「WeReadFocus · Shelf」。如需一并清除本机偏好，可在微信读书页面控制台执行：
 
 ```js
 localStorage.removeItem('wr-rea-shelf-preferences');

@@ -28,9 +28,9 @@ const server = http.createServer(async (request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
   response.end(`<!doctype html><html lang="zh-CN"><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>微信读书 · 清爽书架</title>
+    <title>WeReadFocus · Shelf</title>
     <style>body{max-width:620px;margin:14vh auto;padding:24px;color:#20242a;font:16px/1.9 "Microsoft YaHei",sans-serif}small{color:#758095}h1{font-size:30px}a{display:inline-block;background:#2776ed;color:#fff;padding:10px 24px;border-radius:7px;text-decoration:none}li{margin:7px 0}</style>
-    <small>WeRead REA · 可选开发预览</small><h1>让书架回到阅读本身。</h1>
+    <small>WeReadFocus · Shelf · 可选开发预览</small><h1>让书架回到阅读本身。</h1>
     <p>支持分组排序、主题切换和纯封面书架。日常更新请复制正式脚本；此服务仅用于主动启用的自动预览。</p>
     <ul><li>只在微信读书书架生效。</li><li>不修改书籍归属，不上传阅读数据。</li><li>可以随时在 Tampermonkey 中关闭。</li></ul>
     <p><a href="/weread-shelf.user.js">安装或更新体验版</a></p>
