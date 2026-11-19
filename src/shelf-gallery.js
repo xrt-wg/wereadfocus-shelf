@@ -53,7 +53,6 @@
     html.wr-rea-shelf .navBar, html.wr-rea-pending .navBar { background:var(--wr-bg)!important; border-color:var(--wr-line)!important; box-shadow:none!important; }
     html.wr-rea-shelf .navBar a, html.wr-rea-shelf .navBar button { color:var(--wr-muted)!important; }
     html.wr-rea-shelf .navBar_input { background:var(--wr-panel)!important; color:var(--wr-text)!important; }
-    html[data-wr-rea-theme="dark"].wr-rea-shelf .navBar_logo { filter:invert(.9) hue-rotate(180deg); }
     html.wr-rea-shelf .navBar, html.wr-rea-pending .navBar { height:64px!important; }
     html.wr-rea-shelf .navBar_inner, html.wr-rea-pending .navBar_inner {
       box-sizing:border-box; display:grid!important; grid-template-columns:184px minmax(180px,1fr) auto auto 30px;
@@ -78,14 +77,18 @@
       margin:0 auto!important; padding:84px 32px 20px!important;
     }
     .wr-rea-ui { font-family:"PingFang SC","Microsoft YaHei",sans-serif; }
+    html.wr-rea-shelf .navBar_logo { display:inline-flex!important; align-items:center; gap:9px; width:auto!important; max-width:none!important; overflow:visible!important; background:none!important; text-indent:0!important; }
+    html.wr-rea-shelf .navBar_logo .wr-rea-logo-icon { display:block; width:26px; height:26px; flex:none; }
+    html.wr-rea-shelf .navBar_logo .wr-rea-logo-text { display:inline-block; color:var(--wr-text)!important; font-family:"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei UI","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif; font-size:16px!important; font-weight:600!important; line-height:1!important; white-space:nowrap!important; text-indent:0!important; letter-spacing:normal!important; }
     #${NAV} { grid-column:1; grid-row:1/span 2; min-width:0; padding-right:18px; border-right:1px solid var(--wr-line); }
-    #${NAV} .wr-rea-nav-title { display:flex; align-items:center; justify-content:space-between; margin:0 0 16px; color:#262c35; font-size:17px; font-weight:600; line-height:30px; }
-    #${NAV} .wr-rea-group-count { color:#9ba2ad; font-size:12px; font-weight:400; }
-    #${NAV} .wr-rea-filter { box-sizing:border-box; width:100%; height:34px; padding:0 10px; margin:0 0 14px; border:1px solid #e8ecf1; border-radius:6px; background:#f7f9fb; color:#303947; font:inherit; font-size:12px; }
+    #${NAV} .wr-rea-nav-header { display:flex; align-items:center; justify-content:space-between; height:32px; margin:0 0 12px; min-width:0; }
+    #${NAV} .wr-rea-group-count { color:var(--wr-faint); font-size:12px; font-weight:500; line-height:32px; white-space:nowrap; padding-left:10px; }
+    #${NAV} .wr-rea-filter { box-sizing:border-box; width:100%; height:32px; padding:0 10px; margin:0 0 12px; border:1px solid #e8ecf1; border-radius:6px; background:#f7f9fb; color:#303947; font:inherit; font-size:13px; }
     #${NAV} .wr-rea-filter::placeholder { color:#939ba7; }
     #${NAV} .wr-rea-filter:focus { outline:2px solid #d9e7fd; border-color:#83adf1; }
-    #${NAV} .wr-rea-tabs { position:relative; display:flex; flex-direction:column; gap:3px; max-height:calc(100vh - 210px); overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:#e0e5ec transparent; padding-right:3px; }
-    #${NAV} [data-wr-rea-path] { box-sizing:border-box; width:100%; position:relative; flex:none; display:block; padding:7px 10px; border:0; border-radius:5px; background:transparent; text-align:left; color:#69717d; font:inherit; font-size:13px; line-height:20px; cursor:pointer; overflow-wrap:anywhere; }
+    #${NAV} .wr-rea-tabs { position:relative; display:flex; flex-direction:column; gap:3px; max-height:calc(100vh - 204px); overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; scrollbar-width:none; -ms-overflow-style:none; padding-right:3px; -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 10px),transparent); mask-image:linear-gradient(to bottom,#000 calc(100% - 10px),transparent); }
+    #${NAV} .wr-rea-tabs::-webkit-scrollbar { display:none; width:0; height:0; }
+    #${NAV} [data-wr-rea-path] { box-sizing:border-box; width:100%; position:relative; flex:none; display:block; padding:8px 10px; border:0; border-radius:6px; background:transparent; text-align:left; color:#69717d; font:inherit; font-size:13px; line-height:20px; letter-spacing:.01em; cursor:pointer; overflow-wrap:anywhere; }
     #${NAV} [data-wr-rea-path]:first-child { position:sticky; top:0; z-index:1; margin-bottom:8px; background:#fff; box-shadow:0 6px 0 #fff; }
     #${NAV} [data-wr-rea-path]:hover { background:#f5f7fa; color:#20242a; }
     #${NAV} [aria-current="page"] { background:#edf4ff; color:#226bce; font-weight:600; }
@@ -113,29 +116,33 @@
     #${VIEW} .wr-rea-more { height:1px; }
     #${VIEW} .wr-rea-empty-view { margin:36px 0; text-align:center; color:#939ba7; font-size:13px; }
     #${NAV} button:focus-visible, #${VIEW} a:focus-visible { outline:2px solid #2776ed; outline-offset:-2px; }
-    #${NAV} .wr-rea-nav-title, #${HEADING} h1 { color:var(--wr-text); }
-    #${NAV} .wr-rea-group-count, #${HEADING} p, #${NAV} .wr-rea-empty, #${VIEW} .wr-rea-empty-view { color:var(--wr-faint); }
+    #${HEADING} h1 { color:var(--wr-text); }
+    #${HEADING} p, #${NAV} .wr-rea-empty, #${VIEW} .wr-rea-empty-view { color:var(--wr-faint); }
     #${NAV} .wr-rea-filter { background:var(--wr-panel); color:var(--wr-text); border-color:var(--wr-line); }
     #${NAV} [data-wr-rea-path] { color:var(--wr-muted); }
     #${NAV} [data-wr-rea-path]:first-child { background:var(--wr-bg); box-shadow:0 6px 0 var(--wr-bg); }
     #${NAV} [data-wr-rea-path]:hover { background:var(--wr-hover); color:var(--wr-text); }
     #${NAV} [aria-current="page"] { background:var(--wr-selected); color:var(--wr-accent); }
     #${VIEW} .wr-rea-book { background:var(--wr-panel); }
-    #${NAV} .wr-rea-tabs, #${VIEW} { scrollbar-color:var(--wr-line) transparent; }
+    #${VIEW} { scrollbar-color:var(--wr-line) transparent; }
     #${HEADING} { align-items:center; }
     .wr-rea-heading-start, .wr-rea-heading-end { display:flex; align-items:center; gap:12px; min-width:0; }
     .wr-rea-icon-button { flex:none; display:grid; place-items:center; width:30px; height:30px; padding:0; border:1px solid var(--wr-line); border-radius:6px; background:var(--wr-bg); color:var(--wr-muted); cursor:pointer; }
     .wr-rea-icon-button:hover { color:var(--wr-text); background:var(--wr-hover); }
     .wr-rea-icon-button:focus-visible { outline:2px solid var(--wr-accent); outline-offset:2px; }
     .wr-rea-icon-button svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
-    #wr-rea-fold { width:26px; background:transparent; border:0; border-radius:4px; }
+    #wr-rea-fold { width:26px; height:26px; background:transparent; border:0; border-radius:4px; }
     #wr-rea-fold:hover { background:var(--wr-hover); }
     #wr-rea-fold svg { width:18px; height:18px; stroke-width:1.4; }
     html.wr-rea-collapsed #wr-rea-fold svg { transform:rotate(180deg); }
     .wr-rea-heading-start { gap:9px; }
-    html.wr-rea-shelf.wr-rea-collapsed .shelf_container { grid-template-columns:minmax(0,1fr); column-gap:0; }
-    html.wr-rea-collapsed #${NAV} { display:none; }
-    html.wr-rea-collapsed #${HEADING}, html.wr-rea-collapsed #${VIEW} { grid-column:1; }
+    html.wr-rea-shelf.wr-rea-collapsed .shelf_container { grid-template-columns:36px minmax(0,1fr); column-gap:0; }
+    html.wr-rea-collapsed #${NAV} { padding-right:0; border-right:0; }
+    html.wr-rea-collapsed #${NAV} .wr-rea-nav-header { justify-content:center; }
+    html.wr-rea-collapsed #${NAV} .wr-rea-group-count,
+    html.wr-rea-collapsed #${NAV} .wr-rea-filter,
+    html.wr-rea-collapsed #${NAV} .wr-rea-tabs,
+    html.wr-rea-collapsed #${NAV} .wr-rea-empty { display:none; }
     @media(max-width:680px) {
       html.wr-rea-shelf .shelf_container { grid-template-columns:140px minmax(0,1fr); gap:18px; padding:82px 18px 18px!important; }
       html.wr-rea-shelf .navBar_inner, html.wr-rea-pending .navBar_inner { grid-template-columns:auto minmax(80px,1fr) auto 28px; padding:0 18px!important; column-gap:16px; }
@@ -156,6 +163,18 @@
     const theme=document.getElementById('wr-rea-theme');
     if(theme) { theme.setAttribute('aria-label',preferences.theme==='dark'?'切换浅色主题':'切换暗色主题'); theme.title=theme.getAttribute('aria-label'); theme.setAttribute('aria-pressed',String(preferences.theme==='dark')); theme.innerHTML=preferences.theme==='dark'?'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>':'<svg viewBox="0 0 24 24"><path d="M20.5 13a8.5 8.5 0 0 1-9.5-9.5A8.5 8.5 0 1 0 20.5 13Z"/></svg>'; }
     try { localStorage.setItem('wr-rea-shelf-preferences',JSON.stringify(preferences)); } catch {}
+  }
+
+  function updateFullscreen() {
+    const button = document.getElementById('wr-rea-fullscreen');
+    if (!button) return;
+    const active = !!document.fullscreenElement;
+    button.setAttribute('aria-pressed', String(active));
+    button.setAttribute('aria-label', active ? '退出全屏' : '进入全屏');
+    button.title = button.getAttribute('aria-label');
+    button.innerHTML = active
+      ? '<svg viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>'
+      : '<svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>';
   }
 
   function savePositions() {
@@ -223,15 +242,20 @@
     nav.id = NAV;
     nav.className = 'wr-rea-ui';
     nav.setAttribute('aria-label','书架分组');
-    const title = document.createElement('p');
-    title.className = 'wr-rea-nav-title';
-    title.append('书架');
+    const header = document.createElement('div');
+    header.className = 'wr-rea-nav-header';
     const count = document.createElement('span');
     count.className = 'wr-rea-group-count';
-    count.textContent = `${catalog.groups.length} 个分组`;
-    title.append(count);
+    count.textContent = String(catalog.groups.length);
+    count.title = `${catalog.groups.length} 个分组`;
+    const fold = document.createElement('button');
+    fold.type = 'button'; fold.id = 'wr-rea-fold'; fold.className = 'wr-rea-icon-button';
+    fold.setAttribute('aria-controls', NAV);
+    fold.innerHTML = '<svg viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></svg>';
+    fold.addEventListener('click', ()=>{ preferences.collapsed = !preferences.collapsed; applyPreferences(); });
+    header.append(count, fold);
     const filter = document.createElement('input');
-    filter.type = 'search'; filter.className = 'wr-rea-filter'; filter.placeholder = '筛选分组'; filter.setAttribute('aria-label','筛选书架分组');
+    filter.type = 'search'; filter.className = 'wr-rea-filter'; filter.placeholder = '搜索分组'; filter.setAttribute('aria-label','搜索书架分组');
     const list = document.createElement('div'); list.className = 'wr-rea-tabs';
     let remembered = [];
     try { remembered = JSON.parse(localStorage.getItem('wr-rea-group-order') || sessionStorage.getItem('wr-rea-group-order') || '[]'); } catch {}
@@ -347,7 +371,7 @@
       if (location.pathname.replace(/\/$/,'') !== path) history.pushState({...history.state,wrReaShelf:true},'',path);
       renderRoute(path);
     });
-    nav.append(title,filter,list,empty,sortStatus);
+    nav.append(header,filter,list,empty,sortStatus);
     return nav;
   }
 
@@ -431,18 +455,19 @@
     document.documentElement.classList.remove('wr-rea-navigating','wr-rea-pending');
     clearTimeout(pendingTimer);
     document.documentElement.dataset.wrReaStatus = 'active';
+    ensureLogo();
     if (!document.getElementById(NAV)) container.prepend(createNavigation());
     if (!document.getElementById(HEADING)) {
       const heading = document.createElement('header'); heading.id = HEADING; heading.className = 'wr-rea-ui';
       const title = document.createElement('h1'); const count = document.createElement('p'); count.setAttribute('role','status');
       const start=document.createElement('div'); start.className='wr-rea-heading-start';
       const end=document.createElement('div'); end.className='wr-rea-heading-end';
-      const fold=document.createElement('button'); fold.type='button'; fold.id='wr-rea-fold'; fold.className='wr-rea-icon-button'; fold.setAttribute('aria-controls',NAV);
-      fold.innerHTML='<svg viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></svg>';
-      fold.addEventListener('click',()=>{preferences.collapsed=!preferences.collapsed;applyPreferences();});
       const theme=document.createElement('button'); theme.type='button'; theme.id='wr-rea-theme'; theme.className='wr-rea-icon-button';
       theme.addEventListener('click',()=>{preferences.theme=preferences.theme==='dark'?'light':'dark';applyPreferences();});
-      start.append(fold,title); end.append(count,theme); heading.append(start,end); container.append(heading); applyPreferences();
+      const fullscreen=document.createElement('button'); fullscreen.type='button'; fullscreen.id='wr-rea-fullscreen'; fullscreen.className='wr-rea-icon-button';
+      fullscreen.setAttribute('aria-label','进入全屏'); fullscreen.title='进入全屏';
+      fullscreen.addEventListener('click',()=>{ if(document.fullscreenElement) document.exitFullscreen().catch(()=>{}); else document.documentElement.requestFullscreen().catch(()=>{}); });
+      start.append(title,count); end.append(theme,fullscreen); heading.append(start,end); container.append(heading); applyPreferences(); updateFullscreen();
     }
     if (!document.getElementById(VIEW)) {
       const host = document.createElement('div'); host.id = VIEW; host.className = 'wr-rea-ui'; host.setAttribute('aria-label','书籍封面');
@@ -459,17 +484,39 @@
     document.documentElement.dataset.wrReaStatus = 'inactive';
   }
 
+  function ensureLogo() {
+    const logo = document.querySelector('.navBar_logo');
+    if (!logo || logo.dataset.wrReaLogo) return;
+    logo.dataset.wrReaLogo = '1';
+    const anchor = logo.tagName === 'A' ? logo : (logo.querySelector('a') || logo);
+    const markup =
+      '<svg class="wr-rea-logo-icon" viewBox="0 0 1024 1024" aria-hidden="true">' +
+      '<path fill="#4496D3" d="M204.078 0h615.845q202.07 0 202.07 202.07v615.845q0 202.07-202.07 202.07H204.077q-202.07 0-202.07-202.07V202.069Q2.008 0 204.078 0z"/>' +
+      '<path fill="#FFFFFF" d="M616.087 869.276a106.657 106.657 0 0 0-102.641 77.663 106.657 106.657 0 0 0-102.641-77.663H7.63A202.11 202.11 0 0 0 204.077 1024h615.846a202.11 202.11 0 0 0 196.447-154.724z m255.437-128.14c-44.654 44.172-99.026 54.934-157.816 35.217-19.356-6.506-35.258-8.032-52.204 3.212a73.326 73.326 0 0 1-11.324 3.775c15.46-26.865 4.015-43.65-9.036-62.685-28.993-42.285-23.09-96.738 11.405-136.051 56.22-64.251 166.731-64.251 223.112 0 40.96 46.662 40.076 112.64-4.137 156.531z"/>' +
+      '<path fill="#4496D3" d="M818.96 611.187a20.078 20.078 0 0 0-20.883 19.276 19.516 19.516 0 0 0 18.473 21.444 20.078 20.078 0 0 0 22.006-18.03 20.68 20.68 0 0 0-19.597-22.69z m-108.906 0a20.078 20.078 0 0 0-20.079 22.207 19.556 19.556 0 0 0 21.404 18.472 20.078 20.078 0 0 0 19.275-20.921 20.922 20.922 0 0 0-20.6-19.758z"/>' +
+      '</svg><span class="wr-rea-logo-text">微信读书</span>';
+    if (anchor.tagName === 'IMG') {
+      const span = document.createElement('span');
+      span.innerHTML = markup;
+      anchor.replaceWith(span);
+      return;
+    }
+    anchor.innerHTML = markup;
+  }
+
   observer = new MutationObserver(records=>{if(records.some(record=>!record.target.closest?.('.wr-rea-ui'))) schedule();});
   observer.observe(root,{childList:true,subtree:true});
   window.addEventListener('popstate',schedule);
   window.addEventListener('pageshow',schedule);
   window.addEventListener('pagehide',savePositions);
   window.addEventListener('resize',schedule,{passive:true});
+  window.addEventListener('fullscreenchange',updateFullscreen);
   const timer = setInterval(()=>{if(ROUTE.test(location.pathname)) schedule();},1000);
   window.__wrReaShelfCleanup = ()=>{
     savePositions(); disposed = true; observer.disconnect(); intersection?.disconnect(); clearInterval(timer); clearTimeout(pendingTimer); controller.abort();
     window.removeEventListener('popstate',schedule); window.removeEventListener('resize',schedule);
     window.removeEventListener('pageshow',schedule); window.removeEventListener('pagehide',savePositions);
+    window.removeEventListener('fullscreenchange',updateFullscreen);
     disable(); style.remove(); cachedViews.clear(); delete window.__wrReaShelfCleanup;
   };
   schedule();
